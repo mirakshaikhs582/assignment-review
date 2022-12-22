@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="header">
+      <nav class="navbar bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" id="heading-name">Angular CRUD</a>
+          <form class="d-flex" role="search">
+            <button (click)="logout()" class="btn btn-danger me-2">Logout</button>
+          </form>
+        </div>
+      </nav>
+      <div class="register-form">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-field">
+          <label class="label">First Name</label>
+          <input type="text" formControlName="firstname" placeholder="Enter First Name" id="form-input" class="form-1" [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors && f['firstname'].dirty}"
+            ng-pattern="^[a-zA-Z '-]{3,}$" />
+          <!-- <span *ngIf=" submitted && f['firstname'].errors && f['firstname'].invalid" class="error-form">firstname is must
+            required</span>
+          <span *ngIf=" updated && u['firstname'].errors" class="error-form">firstname upd is required</span>
+          <span *ngIf=" f['firstname'].dirty && f['firstname'].invalid" class="error-form">firstname should at least 4
+            character long </span> -->
+  
+          <label class="label">Last Name</label>
+          <input type="text" formControlName="lastname" placeholder="Enter Last Name" class="form-1"
+            [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors && f['lastname'].dirty}"
+            ng-pattern="^[a-zA-Z '-]{3,}$" />
+          <!-- <span *ngIf=" submitted && f['lastname'].errors && f['lastname'].invalid" class="error-form">lastname is must
+            required</span>
+          <span *ngIf=" updated && u['lastname'].errors" class="error-form">lastname upd is required</span>
+          <span *ngIf=" f['lastname'].dirty && f['lastname'].invalid" class="error-form">lastname should at least 4
+            character long </span>
+   -->
+          <label class="label">Email</label>
+          <input type="email" placeholder="Enter email" formControlName="email" class="form-1"/>
+  
+          <label for="exampleInputPassword1" class="form-label">Mobile Number</label>
+          <input formControlName="mobile" type="text" class="form-1"  placeholder="Enter mobile number">  
+
+          <button class="btn btn-primary" type="button" (click)="addData()" id="btn-action">Add</button>
+          <button class="btn btn-success" type="button" (click)="updateData()" id="btn-action">Update</button>
+          <button class="btn btn-warning" type="button" (click)="reset()" id="btn-action">Reset</button>
+        </form>
+      </div>
+  
+    </div>
+    <div>
+      <table class="table">
+        <thead>
+          <tr class="table-heading">
+            <th scope="col">Employee ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listitem;index as i" class="table-data">
+            <td><span>{{i+1}}</span></td>
+            <td><span>{{item.firstname}}</span></td>
+            <td><span>{{item.lastname}}</span></td>
+            <td><span>{{item.email}}</span></td>
+            <td><span>{{item.mobile}}</span></td>
+            <td><button class="btn btn-danger" type="button"  (click)="removeitem(item)">delete</button>
+                <button class="btn btn-info" type="button" id="btn-update" (click)="updateUser(item)"> edit </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

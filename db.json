@@ -1,0 +1,35 @@
+{
+  "signupUsers": [
+    {
+      "fullname": "Abdulkarim",
+      "email": "abdulk@gmail.com",
+      "password": "123456",
+      "mobile": "9594835456",
+      "id": 1
+    },
+    {
+      "fullname": "abdul",
+      "email": "test@gmail.com",
+      "password": "1212",
+      "mobile": "9920634621",
+      "id": 2
+    },
+    {
+      "fullname": "test",
+      "email": "abc@gmail.com",
+      "password": "123456",
+      "mobile": "9876543210",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
